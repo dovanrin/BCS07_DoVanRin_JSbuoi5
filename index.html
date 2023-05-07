@@ -150,8 +150,56 @@
       </div>
       <div class="hien_thi text-black  rounded-5 py-2 px-4" id="tinhTienThue"> TIỀN THUẾ:</div>
     </div>
-    
   </div>
+  <!-- =========Bài 4============= -->
+  <div class="container row mt-3">
+    <h1> Bài tâp 4</h1>
+    <h3 class="alert alert-success"  > TÍNH TIỀN CÁP</h3>
+    <!-- Khách Hàng -->
+    <div class="mb-3 col-4 items_Cap">
+    <div class="mt-5 input-group mx-3">
+      <div class="input-group-prepend">
+        <button class="btn btn-outline-success">Khách Hàng:</button>
+      </div>
+      <select name="" class="form-control" id="loaiKhachHang" onchange="myFunction()">
+        <option value="">Bấm chọn Khách Hàng</option>
+        <option value="canhan">Cá nhân</option>
+        <option value="doanhnghiep" id="doanhNghiep">Doanh Nghiệp</option>
+        
+      </select>
+    </div>
+<!-- Mã Khách Hàng -->
+<div class="mt-5 input-group mx-2">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-success">Mã khách hàng</button>
+  </div>
+  <input type="text" class="form-control" name="" id="maKhachHang" placeholder="Mã Khách Hàng">
+</div>
+<!-- Kênh Cao Cấp -->
+<div class="mt-5 input-group mx-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-success">Kênh Cao Cấp:</button>
+  </div>
+  <input type="text" class="form-control" name="" id="kenhCaoCap" placeholder="Nhập Số Kênh Thuê">
+</div>
+</div>
+<!-- Số Kết Nối -->
+<div class="mt-5 input-group w-50 " id="ketNoi">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-success">Số Kết Nối</button>
+  </div>
+  <input type="text" class="form-control" name="" id="soKetNoi" placeholder="Nhập số kết Nối">
+</div>
+<!-- Tinhs Tiền  -->
+<div class="input-group-prepend text-center mt-2 mx-2">
+  <button class="btn btn-warning text-bg-dark px-4" id="tinhThue" onclick="tinhTienCapSuDung()">Tính Tiền Cáp &ensp; <i class="fa-solid fa-right-to-bracket fa-rotate-90"></i></button>
+</div>
+<div class="hien_thi text-black  rounded-5 py-2 px-4" id="tinhTienCap"> TIỀN CÁP:</div>
+
+
+
+  </div>
+
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">

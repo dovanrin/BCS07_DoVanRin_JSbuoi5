@@ -101,9 +101,78 @@ function tinhTienDien () {
         tienSuDung = soDien *1300;
     }
 
-    document.getElementById("tinhTien").innerHTML = hoVaTen + ". " + " Tiền điện sử dụng là: " + new Intl.NumberFormat("en-IN").format(tienSuDung) + " " + "VNĐ";
+    document.getElementById("tinhTien").innerHTML = hoVaTen + ". " + " Tiền điện sử dụng là: " + new Intl.NumberFormat("vn-VN").format(tienSuDung) + " " + "VNĐ";
 }
 
 //output: xuất ra sô tiền sử dụng điện tương ứng.
 
 // =========Bài 3================
+/* input: Tổng số thu nhập
+họ và tên
++ Số người phụ thuộc * 1tr6
+ */
+// Bước xử lý:
+// gọi ra các biến cần thiết.
+function tinhTienThueThuNhapCaNhan(){
+    var tongThuNhap = document.getElementById ("thuNhap").value * 1; 
+    var nguoiDongThue = document.getElementById("ten").value;
+    var soNguoiPhuThuoc = document.getElementById("nguoiPhuThuoc").value * 1;
+    var thuNhapDongThue = 0;
+    thuNhapDongThue = tongThuNhap - 4000000 - soNguoiPhuThuoc * 1600000;
+    console.log( thuNhapDongThue);
+if (tongThuNhap <= soNguoiPhuThuoc * 1600000) {
+    alert ("Tổng thu nhập không đóng thuế");
+};
+    var tienDongThue = 0;
+    
+    if (thuNhapDongThue <= 60000000){
+        tienDongThue = thuNhapDongThue * 0.05;
+    }
+    else if (thuNhapDongThue <= 120000000){
+        tienDongThue = thuNhapDongThue * 0.1;
+    }
+    else if (thuNhapDongThue <= 210000000){
+        tienDongThue = thuNhapDongThue * 0.15;
+    }
+    else if (thuNhapDongThue <= 384000000){
+        tienDongThue = thuNhapDongThue * 0.2;
+    }
+    else if (thuNhapDongThue <= 624000000){
+        tienDongThue = thuNhapDongThue * 0.25;
+        }
+    else if (thuNhapDongThue <= 960000000){
+      tienDongThue = thuNhapDongThue * 0.3;
+     }
+    else { tienDongThue = thuNhapDongThue * 0.35; } 
+    document.getElementById("tinhTienThue").innerHTML = nguoiDongThue + ". " + " Tiền Thuế phải đóng là: " + new Intl.NumberFormat("vn-VN").format(tienDongThue) + " " + "VNĐ";
+
+}
+// ========Bài 4===========
+const CANHAN = "canhan";
+const DOANHNGHIEP = "doanhnghiep";
+function myFunction() {
+    var x = document.getElementById("loaiKhachHang").value;
+//    if (x != CANHAN ) {document.getElementById("ketNoi").style.display == "block" ; }
+//    else {document.getElementById("ketNoi").style.display == "none"  ;}
+   console.log(x);
+  }
+//   input: cho loại khách hàng, số kênh cao cấp thuê. và số kết nối đối với loại hình doanh nghiệp.
+// Xử lý:
+  function tinhTienCapSuDung(){
+    var khachHangSuDung = document.getElementById("loaiKhachHang").value;
+    var maKhachHang = document.getElementById("maKhachHang").value;
+    var kenhCaoCap = document.getElementById("kenhCaoCap").value * 1;
+    var soKetNoi = document.getElementById("soKetNoi").value * 1;
+    var tongTienCap = 0
+    if (khachHangSuDung != CANHAN){
+        tongTienCap = 15 + 75 * kenhCaoCap + soKetNoi * 50; 
+    }
+    // else if (kenhCaoCap > 10){
+    //     tongTienCap = 15 + ((75 * kenhCaoCap) + 5 * kenhCaoCap) + soKetNoi * 50;
+    // }
+    else {
+        tongTienCap = 4.5 + 20.5 + kenhCaoCap * 7.5;
+    }
+document.getElementById("tinhTienCap").innerHTML = tongTienCap;
+  }
+//   Xuất ra tiền cáp ứng với tưng loại hình khách hàng
