@@ -152,27 +152,29 @@ const CANHAN = "canhan";
 const DOANHNGHIEP = "doanhnghiep";
 function myFunction() {
     var x = document.getElementById("loaiKhachHang").value;
-//    if (x != CANHAN ) {document.getElementById("ketNoi").style.display == "block" ; }
-//    else {document.getElementById("ketNoi").style.display == "none"  ;}
+   if (x == DOANHNGHIEP ) {document.getElementById("ketNoi").style.display = "block" ; }
+    else {document.getElementById("ketNoi").style.display = "none" ; }
    console.log(x);
   }
 //   input: cho loại khách hàng, số kênh cao cấp thuê. và số kết nối đối với loại hình doanh nghiệp.
 // Xử lý:
+function giaTienCaptu1den10(){}
   function tinhTienCapSuDung(){
     var khachHangSuDung = document.getElementById("loaiKhachHang").value;
     var maKhachHang = document.getElementById("maKhachHang").value;
     var kenhCaoCap = document.getElementById("kenhCaoCap").value * 1;
     var soKetNoi = document.getElementById("soKetNoi").value * 1;
     var tongTienCap = 0
-    if (khachHangSuDung != CANHAN){
-        tongTienCap = 15 + 75 * kenhCaoCap + soKetNoi * 50; 
-    }
-    // else if (kenhCaoCap > 10){
-    //     tongTienCap = 15 + ((75 * kenhCaoCap) + 5 * kenhCaoCap) + soKetNoi * 50;
-    // }
-    else {
+    if (khachHangSuDung == CANHAN){
         tongTienCap = 4.5 + 20.5 + kenhCaoCap * 7.5;
+        
     }
-document.getElementById("tinhTienCap").innerHTML = tongTienCap;
+    else if (khachHangSuDung == DOANHNGHIEP && soKetNoi > 10){
+        tongTienCap = 15 + (75 + (soKetNoi-10) * 5) +  kenhCaoCap * 50;
+    }
+    else {
+        tongTienCap = 15 + 75  + kenhCaoCap * 50;
+    }
+document.getElementById("tinhTienCap").innerHTML = maKhachHang + ". Tiền cáp phải đóng là: " + new Intl.NumberFormat("vn-VN").format(tongTienCap) + " " + "$";
   }
 //   Xuất ra tiền cáp ứng với tưng loại hình khách hàng

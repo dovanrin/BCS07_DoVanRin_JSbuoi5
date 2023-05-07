@@ -35,5 +35,8 @@ input { width: 50%;}
     width: 100%;
 }
 #soKetNoi {
-    width: 50%;
+    width: 50%; 
+}
+#ketNoi {
+    display: none;
 }
