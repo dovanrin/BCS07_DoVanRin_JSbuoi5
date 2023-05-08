@@ -2,7 +2,7 @@
     border: 2px solid red;
     width: 40%;
     height: 50px;
-    margin: 30px 95px;
+    margin: 30px auto;
 }
 .container {
     border: 3px solid black;
